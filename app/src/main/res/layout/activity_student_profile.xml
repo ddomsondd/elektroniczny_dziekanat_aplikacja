@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentProfile">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        app:title="Elektroniczny Dziekanat"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewPowitanieZalogowany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Witaj"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <TextView
+        android:id="@+id/textViewTwojaGrupa"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Twoja grupa:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTwojRok" />
+
+    <TextView
+        android:id="@+id/textViewGrupa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="grupa"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTwojaGrupa"
+        app:layout_constraintStart_toEndOf="@+id/textViewTwojaGrupa" />
+
+    <TextView
+        android:id="@+id/textViewTwojRok"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Rok studiów:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTwojWydzial" />
+
+    <TextView
+        android:id="@+id/textViewRok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="rok"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTwojRok"
+        app:layout_constraintStart_toEndOf="@+id/textViewTwojRok" />
+
+    <TextView
+        android:id="@+id/textViewTwojKierunek"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Kierunek studiów:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTwojIndex" />
+
+    <TextView
+        android:id="@+id/textViewKierunek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kierunek"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTwojKierunek"
+        app:layout_constraintStart_toEndOf="@+id/textViewTwojKierunek" />
+
+    <TextView
+        android:id="@+id/textViewTwojWydzial"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Wydział:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTwojKierunek" />
+
+    <TextView
+        android:id="@+id/textViewWydzial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="wydzial"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTwojWydzial"
+        app:layout_constraintStart_toEndOf="@+id/textViewTwojWydzial" />
+
+    <TextView
+        android:id="@+id/textViewTwojeImie"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Imię i nazwisko:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPowitanieZalogowany" />
+
+    <TextView
+        android:id="@+id/textViewImieNazwisko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="imie nazwisko"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTwojeImie"
+        app:layout_constraintStart_toEndOf="@+id/textViewTwojeImie" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Twoje oceny za zajęcia:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTwojaGrupa" />
+
+    <TextView
+        android:id="@+id/textViewTwojIndex"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Numer indeksu:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTwojeImie" />
+
+    <TextView
+        android:id="@+id/textViewIndex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="index"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTwojIndex"
+        app:layout_constraintStart_toEndOf="@+id/textViewTwojIndex" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewGrades"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonWyloguj"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <Button
+        android:id="@+id/buttonWyloguj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Wyloguj"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
