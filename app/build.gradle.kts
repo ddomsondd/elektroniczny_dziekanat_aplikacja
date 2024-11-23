@@ -36,11 +36,12 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-
-    // https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    // https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+/*
+    testImplementation("org.mockito:mockito-core:4.11.0")
+    androidTestImplementation("org.mockito:mockito-android:4.11.0")
+    testImplementation("com.android.volley:volley:1.2.1")       // testowanie żądań http
+    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.2.0")    //testowanie widokow
+ */
 
     implementation("com.android.volley:volley:1.2.1")
 }

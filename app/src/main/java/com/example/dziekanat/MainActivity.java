@@ -1,6 +1,8 @@
 package com.example.dziekanat;
 
 
+import static com.example.dziekanat.Helper.validateLogin;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -19,8 +21,6 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -42,16 +42,18 @@ public class MainActivity extends AppCompatActivity {
         buttonZaloguj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginStudent();
+                login();
             }
         });
     }
 
-    public void loginStudent() {
+    public void login() {
         String login = editTextLogin.getText().toString().trim();
         String password = editTextHaslo.getText().toString().trim();
 
-        if (login.isEmpty() || password.isEmpty()) {
+        boolean isValid = validateLogin(login, password);
+
+        if (!isValid){
             Toast.makeText(this, "Proszę wypełnić wszystkie pola", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -106,4 +108,28 @@ public class MainActivity extends AppCompatActivity {
         queue.add(jsonObjectRequest);
     }
 
+
+    public String getLoginInput() {
+        return editTextLogin.getText().toString().trim();
+    }
+
+    public String getPasswordInput() {
+        return  editTextHaslo.getText().toString().trim();
+    }
+
+    public void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void loginEmployee() {
+        String login = getLoginInput();
+        String password = getPasswordInput();
+
+        if ("d.wojcik".equals(login) && "passwd123".equals(password)) {
+            Intent intent = new Intent(this, EmployeeProfile.class);
+            startActivity(intent);
+        } else {
+            showToast("Nieprawidłowe dane logowania");
+        }
+    }
 }

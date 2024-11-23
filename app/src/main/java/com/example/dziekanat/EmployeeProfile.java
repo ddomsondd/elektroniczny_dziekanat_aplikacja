@@ -1,5 +1,7 @@
 package com.example.dziekanat;
 
+import static com.example.dziekanat.Helper.validateGrade;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DownloadManager;
@@ -79,46 +81,47 @@ public class EmployeeProfile extends AppCompatActivity {
         String przedmiot = editTextPrzedmiot.getText().toString().trim();
 
 
-        if (index.isEmpty() || ocena.isEmpty() || przedmiot.isEmpty()) {
-            Toast.makeText(this, "Proszę wypełnić wszystkie pola", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        JSONObject gradeData = new JSONObject();
-        try {
-            gradeData.put("grade", ocena);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        String url = generateUrl(Integer.parseInt(index), przedmiot);
-        Log.d("URL", url);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                Request.Method.POST, url, gradeData,
-                response -> {
-                    Toast.makeText(EmployeeProfile.this, "Ocena została zapisana", Toast.LENGTH_SHORT).show();
-                    editTextIndexStudenta.setText("");
-                    editTextOcena.setText("");
-                    editTextPrzedmiot.setText("");
-
-                },
-                error -> {
-                    Log.e("Grade Save Error", "Błąd odpowiedzi: " + error.getMessage());
-                    Toast.makeText(EmployeeProfile.this, "Nieprawidłowe dane dodania oceny", Toast.LENGTH_SHORT).show();
-                }
-
-        ) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + accessToken);
-                return headers;
+        if (!validateGrade(index, ocena, przedmiot)) {
+            Toast.makeText(this, "Proszę wypełnić prawidłowo wszystkie pola", Toast.LENGTH_SHORT).show();
+        } else{
+            JSONObject gradeData = new JSONObject();
+            try {
+                gradeData.put("grade", ocena);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        };
+
+            String url = generateUrl(Integer.parseInt(index), przedmiot);
+            Log.d("URL", url);
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                    Request.Method.POST, url, gradeData,
+                    response -> {
+                        Toast.makeText(EmployeeProfile.this, "Ocena została zapisana", Toast.LENGTH_SHORT).show();
+                        editTextIndexStudenta.setText("");
+                        editTextOcena.setText("");
+                        editTextPrzedmiot.setText("");
+
+                    },
+                    error -> {
+                        Log.e("Grade Save Error", "Błąd odpowiedzi: " + error.getMessage());
+                        Toast.makeText(EmployeeProfile.this, "Nieprawidłowe dane dodania oceny", Toast.LENGTH_SHORT).show();
+                    }
+
+            ) {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> headers = new HashMap<>();
+                    headers.put("Authorization", "Bearer " + accessToken);
+                    return headers;
+                }
+            };
 
 
-        RequestQueue queue = Volley.newRequestQueue(this);
-        queue.add(jsonObjectRequest);
+            RequestQueue queue = Volley.newRequestQueue(this);
+            queue.add(jsonObjectRequest);
+        }
+
+
     }
 
     private void logout(){
